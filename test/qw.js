@@ -45,5 +45,9 @@ test('qw', function (t) {
   t.isDeeply(qw` ${foo} ${bar} ${baz} `, ['exam ple', 'zzzz', ['THINGY']], 'three var both whitespace')
   t.isDeeply(qw` ${foo}   ${bar}   ${baz} `, ['exam ple', 'zzzz', ['THINGY']], 'three var all whitespace')
 
+  t.isDeeply(qw`abc${foo}`, ['abcexam ple'], 'append vars')
+  t.isDeeply(qw`${foo}abc`, ['exam pleabc'], 'prepend vars')
+  t.isDeeply(qw`${foo}${bar}`, ['exam plezzzz'], 'chain vars')
+
   t.done()
 })
